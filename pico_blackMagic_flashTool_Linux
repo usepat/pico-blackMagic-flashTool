@@ -1,0 +1,9 @@
+#!/bin/bash
+sudo stty -F /dev/ttyACM0 1200
+echo waiting
+while [ ! -d /media/usepat/RPI-RP2 ]; do sleep 0.1; done
+sleep 10
+echo initiate copying
+sudo cp -r $1 /media/usepat/RPI-RP*/
+echo done
+

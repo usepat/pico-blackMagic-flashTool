@@ -22,5 +22,5 @@ Tool to support autonomous flashing of .uf2-binary to RP2040/Pico without using 
     
     If there occurs a warning regarding the serial interface, just ignore it. This happens because the the pico changes its device type from serial to mass storage device. 
 
-If script could not be executed, check PS execution policy:
+NOTE: If script could not be executed, check PS execution policy:
 https://adamtheautomator.com/run-powershell-script/#How_to_Run_a_PowerShell_Script_from_the_Command_Line_via_the_PowerShell_Location 

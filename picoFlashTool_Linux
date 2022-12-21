@@ -19,8 +19,8 @@ do
 done
 
 # delete old pico mass storage relics from file system 
-echo deleted following unwanted mass storage relics: 
-sudo find /media/usepat/ -type d -name 'RPI-RP*' -prune -print -exec rm -rf {} \;
+echo deleted mass storage relics \(if existing\): /
+sudo find /media/$USER/ -type d -name 'RPI-RP*' -prune -print -exec rm -rf {} \;
 
 # reset pico over baud rate change to 1200 baud
 echo resetting pico
@@ -47,11 +47,11 @@ sleep 0.5
 
 # copy flash-file to pico
 echo copy flash-file to pico...
-sudo find -type f -name '*.uf2' -exec cp -prv {} /media/usepat/RPI-RP2 \;
+sudo find -type f -name '*.uf2' -exec cp -prv {} /media/$USER/RPI-RP2 \;
 
 # check if flash has been successful
 count=0
-while [ -d /media/usepat/RPI-RP2 ]
+while [ -d /media/$USER/RPI-RP2 ]
 do 
 	sleep 0.5
 	echo .

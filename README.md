@@ -34,6 +34,7 @@ Tool to support autonomous flashing of .uf2-binary to RP2040/Pico without using 
 
 2) Connect your pico and check if it has mounted
    - If there is already firmware on pico go to device manager and check on which COM-port it has mounted (`COM6` in this case).
+   
    ![image](https://user-images.githubusercontent.com/110904384/208672132-c6fb5251-3c28-40d9-8eb4-0dcabc19ccd9.png)
    - If there is no firmware on pico it will be mounted as USB mass storage device (check out your file explorer). Simply drag and drop the .uf2-file manually. The PowerShell-script won't work in this case. 
 

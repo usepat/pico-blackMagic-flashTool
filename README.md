@@ -53,8 +53,10 @@ Tool to support autonomous flashing of .uf2-binary to RP2040/Pico without using 
 
 NOTE: If script could not be executed, check PS execution policy:
 
-i) Run Powershell as Administrator
+i) Run Powershell as Administrator in the folder, where the script is located. That way you don't need to browse through folders in the command line.
 
-ii) run: `Set-ExecutionPolicy -ExecutionPolicy Bypass` -> and confirm with yes
+You can achieve that by going into the respective folder in the windows file explorer and klick File(Datei)/Open Windows Powershell (Windows Powershell öffnen)/Open WIndows Powershell as Administrator (Windows Powershell als Admin öffnen)
+
+ii) run the following command in Powershell: `Set-ExecutionPolicy -ExecutionPolicy Bypass` -> and confirm with yes
 
 iii) now try to run the script again

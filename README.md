@@ -52,4 +52,6 @@ Tool to support autonomous flashing of .uf2-binary to RP2040/Pico without using 
 5) Done!
 
 NOTE: If script could not be executed, check PS execution policy:
-https://adamtheautomator.com/run-powershell-script/#How_to_Run_a_PowerShell_Script_from_the_Command_Line_via_the_PowerShell_Location 
+i) Run Powershell as Administrator
+ii) run: Set-ExecutionPolicy -ExecutionPolicy Bypass -> and confirm with yes
+iii) now try to run the script again

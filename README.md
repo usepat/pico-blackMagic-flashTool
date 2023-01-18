@@ -43,7 +43,7 @@ Tool to support autonomous flashing of .uf2-binary to RP2040/Pico without using 
    
 4) Execute the PS-script with the following command (replace the COM-port with yours)
    
-    `PS > .\picoFlashTool_WinPS.ps1 COM6`
+    `.\picoFlashTool_WinPS.ps1 COM6`
 
     ![image](https://user-images.githubusercontent.com/110904384/208678791-c8a31953-9b4e-4091-8f7a-6024bd64e249.png)
     
@@ -55,6 +55,6 @@ NOTE: If script could not be executed, check PS execution policy:
 
 i) Run Powershell as Administrator
 
-ii) run: Set-ExecutionPolicy -ExecutionPolicy Bypass -> and confirm with yes
+ii) run: `Set-ExecutionPolicy -ExecutionPolicy Bypass` -> and confirm with yes
 
 iii) now try to run the script again

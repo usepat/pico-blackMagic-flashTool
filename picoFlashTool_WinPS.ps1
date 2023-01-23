@@ -1,4 +1,4 @@
-﻿<# powershell script for resetting and flashing rp2040 autonomously #>
+﻿<# powershell script for resetting and flashing rp2040/pico autonomously #>
 
 <# check if rapsi has mounted as serial-device #>
 echo "Wait for serial device on port $args"
@@ -7,9 +7,9 @@ while((mode $args /status) -eq $False){
    Start-Sleep -m 250
    $i += 1
    
-   <# Abort script if no serial device could be found #>
+   <# Abort script if no serial device co)uld be found #>
    if($i -ge 12){
-        echo "No device found on port $args - Aborting process."
+        echo "No device found on serial port $args - Aborting process."
         Exit 1 
    }
 }
@@ -18,29 +18,33 @@ while((mode $args /status) -eq $False){
 echo "resetting pico"
 mode $args baud=12 parity=n data=8 stop=1
 
-<# check if rapsi has mounted as USB-device #>
+<# check if pico has mounted as USB-device #>
 $i = 0
-while((Test-Path -Path F:\) -eq $False){
+$dirve = $null
+$drive = $(Get-WmiObject Win32_LogicalDisk | Where-Object { $_.VolumeName -match "RPI" }).DeviceID.ToString()
+while($drive -eq $null){
     echo "."
     Start-Sleep -m 250 <# sleep for 250 ms #>
     $i += 1
 
-    <# Abort script if no usb device could be found #>
+    <# Exit script if no usb device could be found #>
    if($i -ge 12){
-        echo "No device found on drive F:\ - Aborting process."
+        echo "No pico mass storage Pico device found - Aborting process."
         Exit 1 
    }
+
+   $drive = $(Get-WmiObject Win32_LogicalDisk | Where-Object { $_.VolumeName -match "RPI" }).DeviceID.ToString()
 }
 
-<# copy flash-file to raspi #>
+<# copy flash-file to pico #>
 echo "initiate copying"
 Copy-Item -Filter *.uf2 -Path '.\' -Recurse -Destination 'F:\RPI-RP2'
 
 Start-Sleep -m 1000 <# give pico some time to unmount #>
 
-<# check if rapsi is still mounted as USB-device #>
-if((Test-Path -Path F:\) -eq $True){
-    echo "pico was reset but couldn't be flashed - please drag and drop .uf2-file manually"
+<# check if flash has been successful #>
+if((Test-Path -Path $drive) -eq $True){
+    echo "pico was reset but could not be flashed - please drag and drop .uf2-file manually!"
 }
 else{ 
     echo "done"

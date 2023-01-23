@@ -38,7 +38,7 @@ while($drive -eq $null){
 
 <# copy flash-file to pico #>
 echo "initiate copying"
-Copy-Item -Filter *.uf2 -Path '.\' -Recurse -Destination 'F:\RPI-RP2'
+Copy-Item -Filter *.uf2 -Path '.\' -Recurse -Destination $drive+'\RPI-RP2'
 
 Start-Sleep -m 1000 <# give pico some time to unmount #>
 

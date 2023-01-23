@@ -28,7 +28,7 @@ sudo stty -F /dev/$1 1200
 
 # wait until pico has mounted as mass storage device
 count=0
-while [ ! -d /media/usepat/RPI-RP2 ]
+while [ ! -d /media/$USER/RPI-RP2 ]
 do 
 	sleep 0.5
 	echo .
@@ -38,8 +38,6 @@ do
 		echo pico did not reboot - try again!
 		exit
 	fi
-	
-	
 done
 
 # give pico some time to mount fully
@@ -61,7 +59,6 @@ do
 		echo pico was reset but could not be flashed - please drag and drop .uf2-file manually!
 		exit
 	fi
-	
 done
 
 echo flash successful - black magic happened ~\\\(o.O~\\\)

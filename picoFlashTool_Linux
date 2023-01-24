@@ -11,7 +11,7 @@ do
 	count=$((count+1))
 	echo .
 	# exit script if no serial device could be found
-	if [ $count -ge 20 ]
+	if [ $count -ge 30 ]
 	then 
 		echo No device found on serial port $1 - Aborting process.
 		exit
@@ -34,7 +34,7 @@ do
 	echo .
 	count=$((count+1))
 	# exit script if pico did not mount as mass storage device
-	if [ $count -ge 20 ]; then 
+	if [ $count -ge 30 ]; then 
 		echo pico did not reboot - try again!
 		exit
 	fi

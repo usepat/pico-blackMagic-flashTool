@@ -15,14 +15,14 @@ while($drive -eq $null){
 
     <# Exit script if no usb device could be found #>
    if($i -ge 15){
-        echo "No pico mass storage Pico device found - Aborting process."
+        echo "No Pico device found. Check COM/USB-Port and wire connected to Pico - Aborting process."
         Exit 1 
    }
    $drive = $(Get-WmiObject Win32_LogicalDisk | Where-Object { $_.VolumeName -match "RPI" }).DeviceID.ToString()
 }
 
 <# copy flash-file to pico #>
-echo "initiate copying"
+echo "initiate copying to drive:" $drive
 Copy-Item -Filter *.uf2 -Path '.\' -Recurse -Destination $drive+'\RPI-RP2'
 
 Start-Sleep -m 1000 <# give pico some time to unmount #>

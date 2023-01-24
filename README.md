@@ -22,6 +22,7 @@ Tool to support autonomous flashing of .uf2-binary to RP2040/Pico without using 
 
    ![image](https://user-images.githubusercontent.com/110904384/208934065-46b5a75a-fed1-4da5-a700-927763251dfb.png)
 
+NOTE: If permission for execution of the flash-tool is denied, use `$ sudo chmod +x picoFlashTool_Linux`
     
 5) Done!
 
